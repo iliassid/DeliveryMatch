@@ -17,26 +17,37 @@ public class DeliveryRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @ManyToOne
     @JoinColumn(name = "sender_id", nullable = false)
     private User sender;
-
+    
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
     private Trip trip;
+    
+    @Column(nullable = false)
     private String pickupLocation;
+    
+    @Column(nullable = false)
     private String deliveryLocation;
+    
     private Double packageWidth;
     private Double packageHeight;
     private Double packageLength;
     private Double packageWeight;
+    
     @Enumerated(EnumType.STRING)
     private PackageType packageType;
+    
     private String description;
+    
     @Enumerated(EnumType.STRING)
     private RequestStatus status = RequestStatus.PENDING;
+    
+    @Column(updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+    
     private LocalDateTime updatedAt = LocalDateTime.now();
 }
 

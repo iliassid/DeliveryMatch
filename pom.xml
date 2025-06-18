@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>DeliveryMatch</artifactId>
+    <artifactId>a77</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>DeliveryMatch</name>
-    <description>DeliveryMatch</description>
+    <name>a77</name>
+    <description>a77</description>
     <url/>
     <licenses>
         <license/>
@@ -85,6 +85,7 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

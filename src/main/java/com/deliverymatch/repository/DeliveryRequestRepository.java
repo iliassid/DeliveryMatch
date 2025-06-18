@@ -15,13 +15,13 @@ public interface DeliveryRequestRepository extends JpaRepository<DeliveryRequest
     List<DeliveryRequest> findBySender(User sender);
     List<DeliveryRequest> findByTrip(Trip trip);
     List<DeliveryRequest> findByStatus(RequestStatus status);
-
+    
     @Query("SELECT dr FROM DeliveryRequest dr WHERE dr.trip.driver = :driver")
     List<DeliveryRequest> findByDriver(User driver);
-
+    
     @Query("SELECT COUNT(dr) FROM DeliveryRequest dr WHERE dr.status = 'ACCEPTED'")
     long countAcceptedRequests();
-
+    
     @Query("SELECT COUNT(dr) FROM DeliveryRequest dr")
     long countTotalRequests();
 }

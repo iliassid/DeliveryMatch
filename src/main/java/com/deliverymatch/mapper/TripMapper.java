@@ -12,9 +12,9 @@ import java.util.List;
 public interface TripMapper {
     @Mapping(source = "driver.firstName", target = "driverName")
     TripDto toDto(Trip trip);
-
+    
     List<TripDto> toDtoList(List<Trip> trips);
-
+    
     Trip toEntity(CreateTripRequest request);
 }
 

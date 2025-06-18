@@ -22,7 +22,7 @@ public class StatisticsService {
         stats.setActiveTrips(tripRepository.countActiveTrips());
         stats.setTotalRequests(deliveryRequestRepository.countTotalRequests());
         stats.setAcceptedRequests(deliveryRequestRepository.countAcceptedRequests());
-
+        
         // Calcul du taux d'acceptation
         long totalRequests = stats.getTotalRequests();
         if (totalRequests > 0) {
@@ -31,7 +31,7 @@ public class StatisticsService {
         } else {
             stats.setAcceptanceRate(0.0);
         }
-
+        
         return stats;
     }
 }

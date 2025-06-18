@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserMapper {
     UserDto toDto(User user);
     List<UserDto> toDtoList(List<User> users);
-
+    
     void updateUserFromDto(UserDto dto, @MappingTarget User user);
 }
 

@@ -17,25 +17,40 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @ManyToOne
     @JoinColumn(name = "driver_id", nullable = false)
     private User driver;
+    
+    @Column(nullable = false)
     private String departureLocation;
+    
+    @Column(nullable = false)
     private String destination;
+    
     private String intermediateStops;
+    
+    @Column(nullable = false)
     private LocalDateTime departureDate;
+    
     private LocalDateTime arrivalDate;
+    
     private Double maxWidth;
     private Double maxHeight;
     private Double maxLength;
     private Double maxWeight;
+    
     @Enumerated(EnumType.STRING)
     private PackageType acceptedPackageType;
+    
     private Integer availableCapacity;
+    
     @Enumerated(EnumType.STRING)
     private TripStatus status = TripStatus.ACTIVE;
+    
+    @Column(updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+    
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     private List<DeliveryRequest> deliveryRequests;
 }

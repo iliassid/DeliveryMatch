@@ -14,9 +14,9 @@ public interface DeliveryRequestMapper {
     @Mapping(source = "sender.email", target = "senderEmail")
     @Mapping(source = "trip.id", target = "tripId")
     DeliveryRequestDto toDto(DeliveryRequest deliveryRequest);
-
+    
     List<DeliveryRequestDto> toDtoList(List<DeliveryRequest> deliveryRequests);
-
+    
     DeliveryRequest toEntity(CreateDeliveryRequest request);
 }
 

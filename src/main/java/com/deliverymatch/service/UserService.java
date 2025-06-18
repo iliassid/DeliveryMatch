@@ -39,12 +39,12 @@ public class UserService implements UserDetailsService {
     public UserDto updateUser(Long id, UpdateUserRequest request) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
+        
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setEmail(request.getEmail());
         user.setUpdatedAt(LocalDateTime.now());
-
+        
         User savedUser = userRepository.save(user);
         return userMapper.toDto(savedUser);
     }

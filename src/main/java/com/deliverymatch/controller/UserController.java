@@ -27,7 +27,7 @@ public class UserController {
 
     @PutMapping("/profile")
     public ResponseEntity<UserDto> updateProfile(
-            @RequestBody UpdateUserRequest request,
+            @RequestBody UpdateUserRequest request, 
             Authentication auth) {
         User user = userRepository.findByEmail(auth.getName())
                 .orElseThrow(() -> new RuntimeException("User not found"));

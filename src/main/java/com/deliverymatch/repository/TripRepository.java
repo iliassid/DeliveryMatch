@@ -15,13 +15,13 @@ import java.util.List;
 public interface TripRepository extends JpaRepository<Trip, Long> {
     List<Trip> findByDriverAndStatus(User driver, TripStatus status);
     List<Trip> findByStatus(TripStatus status);
-
+    
     @Query("SELECT t FROM Trip t WHERE t.status = 'ACTIVE' AND " +
-            "(:destination IS NULL OR LOWER(t.destination) LIKE LOWER(CONCAT('%', :destination, '%'))) AND " +
-            "(:departureDate IS NULL OR t.departureDate >= :departureDate)")
-    List<Trip> findAvailableTrips(@Param("destination") String destination,
+           "(:destination IS NULL OR LOWER(t.destination) LIKE LOWER(CONCAT('%', :destination, '%'))) AND " +
+           "(:departureDate IS NULL OR t.departureDate >= :departureDate)")
+    List<Trip> findAvailableTrips(@Param("destination") String destination, 
                                   @Param("departureDate") LocalDateTime departureDate);
-
+    
     @Query("SELECT COUNT(t) FROM Trip t WHERE t.status = 'ACTIVE'")
     long countActiveTrips();
 }

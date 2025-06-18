@@ -22,20 +22,36 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Column(nullable = false)
     private String firstName;
+    
+    @Column(nullable = false)
     private String lastName;
+    
+    @Column(unique = true, nullable = false)
     private String email;
+    
+    @Column(nullable = false)
     private String password;
+    
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    
     private boolean verified = false;
     private boolean active = true;
+    
+    @Column(updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+    
     private LocalDateTime updatedAt = LocalDateTime.now();
+    
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Trip> trips;
+    
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     private List<DeliveryRequest> deliveryRequests;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.name()));
