@@ -22,31 +22,20 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
     private String email;
-
     private String password;
-
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
     private boolean verified = false;
     private boolean active = true;
-
     private LocalDateTime createdAt = LocalDateTime.now();
-
     private LocalDateTime updatedAt = LocalDateTime.now();
-
     @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
     private List<Trip> trips;
-
     @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
     private List<DeliveryRequest> deliveryRequests;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.name()));

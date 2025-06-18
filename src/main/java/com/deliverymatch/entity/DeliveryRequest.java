@@ -25,26 +25,18 @@ public class DeliveryRequest {
     @ManyToOne
     @JoinColumn(name = "trip_id", nullable = false)
     private Trip trip;
-
     private String pickupLocation;
-
     private String deliveryLocation;
-
     private Double packageWidth;
     private Double packageHeight;
     private Double packageLength;
     private Double packageWeight;
-
     @Enumerated(EnumType.STRING)
     private PackageType packageType;
-
     private String description;
-
     @Enumerated(EnumType.STRING)
     private RequestStatus status = RequestStatus.PENDING;
-
     private LocalDateTime createdAt = LocalDateTime.now();
-
     private LocalDateTime updatedAt = LocalDateTime.now();
 }
 
