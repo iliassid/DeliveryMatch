@@ -1,13 +1,12 @@
-package com.example.delivery;
+package com.deliverymatch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DeliveryApplication {
-
+public class DeliveryMatchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DeliveryApplication.class, args);
+        SpringApplication.run(DeliveryMatchApplication.class, args);
     }
-
 }
+
